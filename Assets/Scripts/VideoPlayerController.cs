@@ -7,27 +7,27 @@ public class VideoPlayerController : MonoBehaviour
 
     private void Start()
     {
-        // 获取VideoPlayer组件
+        // Get VideoPlayer Component
         videoPlayer = GetComponent<VideoPlayer>();
-
-        // 设置视频循环播放
-        //videoPlayer.isLooping = false;
     }
 
     public void PlayVideo()
     {
+        Debug.Log("play!");
+
         if (videoPlayer != null)
         {
-            // 播放视频
+            // Play Video
             videoPlayer.Play();
         }
     }
 
     public void PauseVideo()
     {
+        Debug.Log("pause!");
         if (videoPlayer != null)
         {
-            // 暂停视频
+            // Pause Video
             videoPlayer.Pause();
         }
     }
@@ -38,7 +38,7 @@ public class VideoPlayerController : MonoBehaviour
         {
             PauseVideo();
         }
-        if(GetComponent<VideoPlayer>().isPaused)
+        else if(GetComponent<VideoPlayer>().isPaused)
         {
             PlayVideo();
         }
@@ -49,7 +49,7 @@ public class VideoPlayerController : MonoBehaviour
     {
         if (videoPlayer != null)
         {
-            // 重播视频（回到视频的开始）
+            // Replay Video
             videoPlayer.Stop();
             videoPlayer.Play();
         }

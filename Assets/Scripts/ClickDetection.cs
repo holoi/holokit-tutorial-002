@@ -8,12 +8,12 @@ public class ClickDetection : MonoBehaviour
     void Update()
     {
 
-        // 在手机上检测触摸
+        // Detect Screen Taps
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
 
-            // 当用户点击屏幕时触发事件
+            // Trigger when user tap on screen
             if (touch.phase == TouchPhase.Began)
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
@@ -23,7 +23,7 @@ public class ClickDetection : MonoBehaviour
                 {
                     if (hit.collider.gameObject == gameObject)
                     {
-                        // 碰撞到了当前物体，执行单击事件
+                        // Hit current object and excute:
                         HandleSingleClick();
                     }
                 }
@@ -33,8 +33,6 @@ public class ClickDetection : MonoBehaviour
 
     void HandleSingleClick()
     {
-        // 执行单击事件的代码
-        Debug.Log("单击");
         singleClickEvent?.Invoke();
     }
 }
